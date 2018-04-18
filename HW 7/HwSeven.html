@@ -1,0 +1,381 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>HwSeven</title><meta name="generator" content="MATLAB 9.3"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2018-02-02"><meta name="DC.source" content="HwSeven.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><pre class="codeinput"><span class="comment">%HOMEWORK 7 - MECH 103</span>
+<span class="comment">%Abdulla Al Ameri</span>
+<span class="comment">%Date Due: 5, Feb, 2018</span>
+</pre><pre class="codeinput">clear
+clc
+
+<span class="comment">%Intilaizing Variables.</span>
+
+Epsl = 1; <span class="comment">%Epsilon</span>
+
+<span class="keyword">while</span> Epsl + 1 &gt; 1
+
+    Epsl = Epsl * (0.5)
+
+<span class="keyword">end</span>
+
+Epsl = Epsl * 2
+</pre><pre class="codeoutput">
+Epsl =
+
+    0.5000
+
+
+Epsl =
+
+    0.2500
+
+
+Epsl =
+
+    0.1250
+
+
+Epsl =
+
+    0.0625
+
+
+Epsl =
+
+    0.0312
+
+
+Epsl =
+
+    0.0156
+
+
+Epsl =
+
+    0.0078
+
+
+Epsl =
+
+    0.0039
+
+
+Epsl =
+
+    0.0020
+
+
+Epsl =
+
+   9.7656e-04
+
+
+Epsl =
+
+   4.8828e-04
+
+
+Epsl =
+
+   2.4414e-04
+
+
+Epsl =
+
+   1.2207e-04
+
+
+Epsl =
+
+   6.1035e-05
+
+
+Epsl =
+
+   3.0518e-05
+
+
+Epsl =
+
+   1.5259e-05
+
+
+Epsl =
+
+   7.6294e-06
+
+
+Epsl =
+
+   3.8147e-06
+
+
+Epsl =
+
+   1.9073e-06
+
+
+Epsl =
+
+   9.5367e-07
+
+
+Epsl =
+
+   4.7684e-07
+
+
+Epsl =
+
+   2.3842e-07
+
+
+Epsl =
+
+   1.1921e-07
+
+
+Epsl =
+
+   5.9605e-08
+
+
+Epsl =
+
+   2.9802e-08
+
+
+Epsl =
+
+   1.4901e-08
+
+
+Epsl =
+
+   7.4506e-09
+
+
+Epsl =
+
+   3.7253e-09
+
+
+Epsl =
+
+   1.8626e-09
+
+
+Epsl =
+
+   9.3132e-10
+
+
+Epsl =
+
+   4.6566e-10
+
+
+Epsl =
+
+   2.3283e-10
+
+
+Epsl =
+
+   1.1642e-10
+
+
+Epsl =
+
+   5.8208e-11
+
+
+Epsl =
+
+   2.9104e-11
+
+
+Epsl =
+
+   1.4552e-11
+
+
+Epsl =
+
+   7.2760e-12
+
+
+Epsl =
+
+   3.6380e-12
+
+
+Epsl =
+
+   1.8190e-12
+
+
+Epsl =
+
+   9.0949e-13
+
+
+Epsl =
+
+   4.5475e-13
+
+
+Epsl =
+
+   2.2737e-13
+
+
+Epsl =
+
+   1.1369e-13
+
+
+Epsl =
+
+   5.6843e-14
+
+
+Epsl =
+
+   2.8422e-14
+
+
+Epsl =
+
+   1.4211e-14
+
+
+Epsl =
+
+   7.1054e-15
+
+
+Epsl =
+
+   3.5527e-15
+
+
+Epsl =
+
+   1.7764e-15
+
+
+Epsl =
+
+   8.8818e-16
+
+
+Epsl =
+
+   4.4409e-16
+
+
+Epsl =
+
+   2.2204e-16
+
+
+Epsl =
+
+   1.1102e-16
+
+
+Epsl =
+
+   2.2204e-16
+
+</pre><p class="footer"><br><a href="http://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2017b</a><br></p></div><!--
+##### SOURCE BEGIN #####
+%%
+
+%HOMEWORK 7 - MECH 103
+%Abdulla Al Ameri
+%Date Due: 5, Feb, 2018
+
+%%
+
+clear
+clc
+
+%Intilaizing Variables.
+
+Epsl = 1; %Epsilon
+
+while Epsl + 1 > 1
+    
+    Epsl = Epsl * (0.5)
+    
+end
+
+Epsl = Epsl * 2
+##### SOURCE END #####
+--></body></html>

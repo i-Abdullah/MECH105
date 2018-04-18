@@ -1,0 +1,317 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>MyDays</title><meta name="generator" content="MATLAB 9.3"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2018-01-30"><meta name="DC.source" content="MyDays.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><pre class="codeinput"><span class="keyword">function</span> nd = MyDays (mo,da,leap)
+<span class="comment">%HOMEWORK 4 - MECH 103</span>
+<span class="comment">%Abdulla Al Ameri</span>
+<span class="comment">%Date: 30, January, 2018</span>
+<span class="comment">%---------------------------</span>
+<span class="comment">%Note: Although the instructions were to name this function "days",</span>
+<span class="comment">%I choose to name it as MyDays because there's a built in function in</span>
+<span class="comment">%matlab called "days" and I didn't want to overwrite it.</span>
+<span class="comment">%---------------------------</span>
+<span class="comment">%This Function meant to cacluate how many days has passed in a given date</span>
+<span class="comment">%---------------------------</span>
+<span class="comment">%INPUTS:</span>
+<span class="comment">%       mo - Number of the month (from 1 to 12)</span>
+<span class="comment">%       da - Number of the Day (from 1 to 31)</span>
+<span class="comment">%       leap - To define if it's a leap year or not (1 is leap, 0 is not)</span>
+<span class="comment">%-----------------------</span>
+<span class="comment">%OUTPUTS:</span>
+<span class="comment">%       nd - Number of days in that year.</span>
+<span class="comment">%---------------------------</span>
+<span class="comment">% IMPORTANT: An end of the day is included, i.e.: if your day was the 5th</span>
+<span class="comment">% day of the month, this day will be included in the cacluations, in other</span>
+<span class="comment">% words the code will assume that you finished the 5th day!</span>
+<span class="comment">%---------------------------</span>
+
+
+<span class="comment">%If user inputs more than 3 arguments error massage will show up!</span>
+
+<span class="keyword">if</span> nargin ~= 3
+    error(<span class="string">'This function requires exactly 3 variable inputs. Check help.'</span>)
+<span class="keyword">end</span>
+
+
+<span class="comment">%The following to elminate user mistakes in case they input more months\</span>
+<span class="comment">%than usual (12 in a year), or more days in months that has specific number</span>
+<span class="comment">%of days taking into considration leap and non-leap years.</span>
+
+<span class="keyword">if</span> mo &lt; 1 || mo &gt; 12
+    error(<span class="string">'You Cannot have more than 12 month in a year nor less than 1!'</span>)
+<span class="keyword">elseif</span> da &lt; 1 || da &gt; 31
+    error (<span class="string">'You Cannot have more than 31 day in a month nor less than 1!'</span>)
+<span class="keyword">elseif</span> leap &gt; 1 || leap &lt; 0
+    error (<span class="string">'You cannot input anything but 0 or 1, 0 means non-leap year, 1 means a leap year'</span>)
+<span class="keyword">elseif</span> mo == 2 &amp;&amp; da&gt;29 &amp;&amp; leap == 1
+    error (<span class="string">'You cannot have more than 29 days in Feb. of a leap year'</span>)
+<span class="keyword">elseif</span> mo == 2 &amp;&amp; da&gt;28 &amp;&amp; leap == 0
+    error (<span class="string">'You cannot have more than 28 days in Feb. of a non-leap year'</span>)
+<span class="keyword">elseif</span> mo == 4 &amp;&amp; da&gt;30
+    error (<span class="string">'You cannot have more than 30 days in April.'</span>)
+<span class="keyword">elseif</span> mo == 6 &amp;&amp; da&gt;30
+    error (<span class="string">'You cannot have more than 30 days in July.'</span>)
+<span class="keyword">elseif</span> mo == 9 &amp;&amp; da&gt;30
+    error (<span class="string">'You cannot have more than 30 days in Sept.'</span>)
+<span class="keyword">elseif</span> mo == 11 &amp;&amp; da&gt;30
+    error (<span class="string">'You cannot have more than 30 days in Nov.'</span>)
+<span class="keyword">end</span>
+
+
+<span class="comment">%We're starting from the assumption that each month has 31 days, then we're</span>
+<span class="comment">%substracting the extra number of days when the month is less than 31 day,</span>
+<span class="comment">%and substracting an extra 3 days if the year is not leap and the month</span>
+<span class="comment">%is after Feb or substracting 2 days if the year is leap.</span>
+
+<span class="comment">%Also notice that some months after Feb or and before Dec</span>
+
+nd = mo*31;
+nd = nd - (31-da);
+
+<span class="keyword">if</span> mo == 4 &amp;&amp; leap == 1;
+    nd = nd - 2;
+<span class="keyword">elseif</span> mo == 5 &amp;&amp; leap == 1;
+    nd = nd - 3;
+<span class="keyword">elseif</span> mo == 6 &amp;&amp; leap == 1;
+    nd = nd - 3;
+<span class="keyword">elseif</span> mo == 7 &amp;&amp; leap == 1;
+    nd = nd - 4
+<span class="keyword">elseif</span> mo == 8 &amp;&amp; leap == 1;
+    nd = nd - 4;
+<span class="keyword">elseif</span> mo == 9 &amp;&amp; leap == 1;
+    nd = nd - 4;
+<span class="keyword">elseif</span> mo == 10 &amp;&amp; leap == 1;
+    nd = nd - 5;
+<span class="keyword">elseif</span> mo == 11 &amp;&amp; leap == 1;
+    nd = nd - 5;
+<span class="keyword">elseif</span> mo == 12 &amp;&amp; leap == 1;
+    nd = nd - 6;
+<span class="keyword">elseif</span> mo == 1 &amp;&amp; leap == 1;
+    nd = nd;
+<span class="keyword">elseif</span> mo == 2 &amp;&amp; leap == 1;
+    nd = nd;
+<span class="keyword">elseif</span> mo == 3 &amp;&amp; leap == 1;
+    nd = nd - 2;
+<span class="comment">%Conditions when the year isn't leap</span>
+<span class="keyword">elseif</span> mo == 4 &amp;&amp; leap == 0;
+    nd = nd - 3;
+<span class="keyword">elseif</span> mo == 5 &amp;&amp; leap == 0;
+    nd = nd - 4;
+<span class="keyword">elseif</span> mo == 6 &amp;&amp; leap == 0;
+    nd = nd - 4;
+<span class="keyword">elseif</span> mo == 7 &amp;&amp; leap == 0;
+    nd = nd - 5;
+<span class="keyword">elseif</span> mo == 8 &amp;&amp; leap == 0;
+    nd = nd - 5;
+<span class="keyword">elseif</span> mo == 9 &amp;&amp; leap == 0;
+    nd = nd - 5;
+<span class="keyword">elseif</span> mo == 10 &amp;&amp; leap == 0;
+    nd = nd - 6;
+<span class="keyword">elseif</span> mo == 11 &amp;&amp; leap == 0;
+    nd = nd - 6;
+  <span class="keyword">elseif</span> mo == 12 &amp;&amp; leap == 0;
+    nd = nd - 7;
+<span class="keyword">elseif</span> mo == 1 &amp;&amp; leap == 0;
+    nd = nd;
+<span class="keyword">elseif</span> mo == 2 &amp;&amp; leap == 0;
+    nd = nd;
+<span class="keyword">elseif</span> mo == 3 &amp;&amp; leap == 0;
+    nd = nd - 3;
+<span class="keyword">end</span>
+
+fprintf(<span class="string">'The number of days since the begging of the year including this day is'</span>, nd )
+
+<span class="keyword">end</span>
+</pre><pre class="codeoutput error">Error using MyDays (line 30)
+This function requires exactly 3 variable inputs. Check help.
+</pre><p class="footer"><br><a href="http://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2017b</a><br></p></div><!--
+##### SOURCE BEGIN #####
+
+function nd = MyDays (mo,da,leap)
+%HOMEWORK 4 - MECH 103
+%Abdulla Al Ameri
+%Date: 30, January, 2018
+%REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH-
+%Note: Although the instructions were to name this function "days",
+%I choose to name it as MyDays because there's a built in function in
+%matlab called "days" and I didn't want to overwrite it.
+%REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH-
+%This Function meant to cacluate how many days has passed in a given date
+%REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH-
+%INPUTS:
+%       mo - Number of the month (from 1 to 12)
+%       da - Number of the Day (from 1 to 31)
+%       leap - To define if it's a leap year or not (1 is leap, 0 is not)
+%REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH-
+%OUTPUTS:
+%       nd - Number of days in that year.
+%REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH-
+% IMPORTANT: An end of the day is included, i.e.: if your day was the 5th
+% day of the month, this day will be included in the cacluations, in other
+% words the code will assume that you finished the 5th day!
+%REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH-
+
+
+%If user inputs more than 3 arguments error massage will show up!
+
+if nargin ~= 3
+    error('This function requires exactly 3 variable inputs. Check help.')
+end
+
+
+%The following to elminate user mistakes in case they input more months\
+%than usual (12 in a year), or more days in months that has specific number
+%of days taking into considration leap and non-leap years.
+
+if mo < 1 || mo > 12
+    error('You Cannot have more than 12 month in a year nor less than 1!')
+elseif da < 1 || da > 31
+    error ('You Cannot have more than 31 day in a month nor less than 1!')
+elseif leap > 1 || leap < 0
+    error ('You cannot input anything but 0 or 1, 0 means non-leap year, 1 means a leap year')
+elseif mo == 2 && da>29 && leap == 1
+    error ('You cannot have more than 29 days in Feb. of a leap year')
+elseif mo == 2 && da>28 && leap == 0
+    error ('You cannot have more than 28 days in Feb. of a non-leap year')
+elseif mo == 4 && da>30
+    error ('You cannot have more than 30 days in April.')
+elseif mo == 6 && da>30
+    error ('You cannot have more than 30 days in July.')
+elseif mo == 9 && da>30
+    error ('You cannot have more than 30 days in Sept.')
+elseif mo == 11 && da>30
+    error ('You cannot have more than 30 days in Nov.')
+end
+
+
+%We're starting from the assumption that each month has 31 days, then we're
+%substracting the extra number of days when the month is less than 31 day,
+%and substracting an extra 3 days if the year is not leap and the month
+%is after Feb or substracting 2 days if the year is leap.
+
+%Also notice that some months after Feb or and before Dec 
+
+nd = mo*31;
+nd = nd - (31-da);
+
+if mo == 4 && leap == 1;
+    nd = nd - 2;
+elseif mo == 5 && leap == 1;
+    nd = nd - 3;
+elseif mo == 6 && leap == 1;
+    nd = nd - 3;
+elseif mo == 7 && leap == 1;
+    nd = nd - 4
+elseif mo == 8 && leap == 1;
+    nd = nd - 4;
+elseif mo == 9 && leap == 1;
+    nd = nd - 4;
+elseif mo == 10 && leap == 1;
+    nd = nd - 5;
+elseif mo == 11 && leap == 1;
+    nd = nd - 5;
+elseif mo == 12 && leap == 1;
+    nd = nd - 6;
+elseif mo == 1 && leap == 1;
+    nd = nd;
+elseif mo == 2 && leap == 1;
+    nd = nd;
+elseif mo == 3 && leap == 1;
+    nd = nd - 2;
+%Conditions when the year isn't leap
+elseif mo == 4 && leap == 0;
+    nd = nd - 3;
+elseif mo == 5 && leap == 0;
+    nd = nd - 4;
+elseif mo == 6 && leap == 0;
+    nd = nd - 4;
+elseif mo == 7 && leap == 0;
+    nd = nd - 5;
+elseif mo == 8 && leap == 0;
+    nd = nd - 5;
+elseif mo == 9 && leap == 0;
+    nd = nd - 5;
+elseif mo == 10 && leap == 0;
+    nd = nd - 6;
+elseif mo == 11 && leap == 0;
+    nd = nd - 6;
+  elseif mo == 12 && leap == 0;
+    nd = nd - 7;
+elseif mo == 1 && leap == 0;
+    nd = nd;
+elseif mo == 2 && leap == 0;
+    nd = nd;
+elseif mo == 3 && leap == 0;
+    nd = nd - 3;
+end
+
+fprintf('The number of days since the begging of the year including this day is', nd )
+
+end
+##### SOURCE END #####
+--></body></html>
