@@ -8,6 +8,6 @@
 
 * Note: most of the codes inside them has enough comments that tills you what the function do and how to use it. USE HELP in MATLAB to find more.
 
-> Feel free to use them and correct them if they have any mistakes!
+* Feel free to use them and correct them if they have any mistakes!
 
-> Abdulla.
+> Abdulla | عبدالله
