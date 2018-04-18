@@ -10,4 +10,4 @@
 
 * Feel free to use them and correct them if they have any mistakes!
 
-> Abdulla | عبدالله
+> Abdulla
