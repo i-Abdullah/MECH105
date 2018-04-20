@@ -5,7 +5,7 @@
 # INPUTS:
 
 *        A - n x n matrix represent coefficients of a function
-* 
+
 
 
 # OUTPUTS:
@@ -13,5 +13,4 @@
 *        L - Lower triangular matrix
 *        U - Upper triangular matrix
 *        P - The Pivot Matrix
-* 
 
