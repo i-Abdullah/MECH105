@@ -1,0 +1,1 @@
+* This code will try to solve Chemical Reactions by estimating the value of x for a specific equation for an chemical reaction ( the details are in PDF file).

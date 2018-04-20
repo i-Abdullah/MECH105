@@ -1,3 +1,4 @@
-* HOMEWORK 4 - MECH 103* Abdulla Al Ameri* Date: 30, January, 2018*  Note: Although the instructions were to name this function "days", I choose to name it as MyDays because there's a built in function in matlab called "days" and I didn't want to overwrite it.* This Function meant to cacluate how many days has passed in a given date# INPUTS:
+# Days Calculator
+*  Note: Although the instructions were to name this function "days", I choose to name it as MyDays because there's a built in function in Matlab called "days" and I didn't want to overwrite it.* This Function meant to calculates how many days has passed in a given date# INPUTS:
 *        mo - Number of the month (from 1 to 12)*        da - Number of the Day (from 1 to 31)*        leap - To define if it's a leap year or not (1 is leap, 0 is not)# OUTPUTS:
 *        nd - Number of days in that year.*  IMPORTANT: An end of the day is included, i.e.: if your day was the 5th*  day of the month, this day will be included in the cacluations, in other*  words the code will assume that you finished the 5th day!* Hint: What happens when the dat is 17th of November? (Try it!)
