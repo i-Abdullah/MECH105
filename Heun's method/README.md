@@ -16,11 +16,11 @@
 
 *	es   - Stopping criteria: relative error
 
-‘[ will deafult to 0.001 if user left it empty. ]’
+‘will deafult to 0.001 if user left it empty. ’
 
 *	 maxit- maximum number of iterations
 
-‘[ will deafult to 50 if user left it empty. ]’
+‘ will deafult to 50 if user left it empty. ’
 
 
 # OUTPUTS:
