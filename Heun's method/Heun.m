@@ -33,6 +33,20 @@ function [t,y] = Heun (dydt,tspan,y0,h,es,maxit)
 %
 %---------------------------
 
+%Check for errors in input
+
+if nargin == 4
+    
+    es = 0.001;
+    maxit = 50;
+    
+elseif nargin == 5
+    maxit = 50;
+else
+    error('You do not have enough inputs, check help');
+end
+
+% Making y array
 
 y = y0;
 
@@ -50,35 +64,38 @@ if max(t) ~= max(tspan)
     
 else
 
+    %Store h values in array to detect changes in step size
 for i = 1:length(t)-1
     h(i) = t(i+1) - t(i);
     end
     
 end
 
-% itNum will keep track of how many itterations
-% error will check the relative error in y
-
 
 for j = 1 : length(t)-1
 
+% itNum will keep track of how many itterations
+% error will check the relative error in y
+
 itNum = 0;
-error = 0;
+error2 = 0;
+
+%Making the first prediction to avoid dividing by 0
+
 k = 1;
 Pred(k) = y(j) + h(j)*dydt(t(j),y(j)); %Prediction
 Pred(k+1) = y(j) + h(j)/2 * (dydt(t(j),y(j))+ dydt(t(j+1),Pred(k))); %Correction
-%Pred(k+2) = Pred(k+1) + h(j)/2 * (dydt(t(j),y(j))+ dydt(t(j+1),Pred(k+1))); %Correction
 itNum = itNum + 1;
-error = (abs ((Pred(k+1) - Pred(k)) / (Pred(k+1)) )) * 100 ;
+error2 = (abs ((Pred(k+1) - Pred(k)) / (Pred(k+1)) )) * 100 ;
 k=k+1;
     
-while itNum <= maxit && error >= es
+while itNum <= maxit && error2 >= es
 %k=k+1;
 %Pred(k) = y(j) + h(j)*dydt(t(j),y(j)); %Prediction
 Pred(k+1) = y(j) + h(j)/2 * (dydt(t(j),y(j))+ dydt(t(j+1),Pred(k))); %Correction
 
 %Checking the stopping Criteria.
-error = (abs ((Pred(k+1) - Pred(k))) / abs((Pred(k+1)))) * 100 ;
+error2 = (abs ((Pred(k+1) - Pred(k))) / abs((Pred(k+1)))) * 100 ; %error
 
 itNum = itNum + 1;
 k = k+1;
@@ -103,7 +120,6 @@ legend('Heuns method with iter')
 
 disp('The values'), disp('     [t]       [y]    ');
 disp([t',y']);
-
 
 
 end
