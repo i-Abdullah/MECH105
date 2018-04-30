@@ -10,7 +10,7 @@
 *       xl- the lower guess
 *       xu- the upper guess
 *       es - the desired relative error (should default to 0.0001*)
-*       maxiter - the number of iterations desired (should default to 200)
+*	maxiter - the number of iterations desired (should default to 200)
 
 # OUTPUTS:
 
