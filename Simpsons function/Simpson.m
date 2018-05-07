@@ -24,7 +24,7 @@ function [I] = Simpson(x,y)
 %Check if they're equally spaced
 
 
-if (abs(max(diff(x))) - abs(max(diff(x)))) ~= 0
+if (abs(max(diff(x))) - abs(min(diff(x)))) ~= 0
     
     error('Vector is not equally spaced');
     
